@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Tune Mate</title>
+    <title>PoCo</title>
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +14,7 @@
     <script src="https://use.fontawesome.com/65cce83ce3.js"></script>
   </head>
   <body>
-	<div>
+    <div id="random">
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,9 +24,13 @@
 
     <script>
 
-      var player;
+      function update_random() {
+        $("#random").text(Math.floor(Math.random() * 100) + 1);
+        var t = setTimeout(update_random, 5000);
+      }
 
       function on_dom_loaded() {
+        update_random();
       }
 
       $(on_dom_loaded);
