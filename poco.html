@@ -14,7 +14,15 @@
     <script src="https://use.fontawesome.com/65cce83ce3.js"></script>
   </head>
   <body>
-    <div id="random">
+    <div>
+      <h1><span id="random" class="label label-default"></span></h1>
+    </div>
+    <div>
+      <h3>
+        <button type="button" class="btn btn-primary" onclick="inc_level()">Level <span id="level" class="badge">0</span></button>
+        <span id="blinds" class="label label-info">0 / 0</span>
+        <span id="ante" class="label label-info">0</span>
+      </h3>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,13 +32,31 @@
 
     <script>
 
+      var sb = [10, 15, 25, 40, 60, 80,
+                100, 150, 200, 300, 400, 500, 600, 800,
+                1000, 1500, 2000, 3000, 4000, 5000, 6000, 8000,
+                10000, 15000, 20000, 25000, 30000];
+      var ante = [3, 4, 6, 10, 15, 20,
+                  25, 25, 25, 50, 50, 60, 75, 75,
+                  100, 150, 200, 300, 400, 600, 800,
+                  1000, 1500, 2000, 2500, 3000];
+      var level = 0;
+
       function update_random() {
         $("#random").text(Math.floor(Math.random() * 100) + 1);
         var t = setTimeout(update_random, 5000);
       }
 
+      function inc_level() {
+        level += 1;
+        $("#level").text(level);
+        $("#blinds").text(sb[level-1] + " / " + sb[level-1]*2);
+        $("#ante").text(ante[level-1]);
+      }
+
       function on_dom_loaded() {
         update_random();
+        inc_level();
       }
 
       $(on_dom_loaded);
