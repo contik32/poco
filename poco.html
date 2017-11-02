@@ -67,11 +67,31 @@
 
     Players
     <div class="input-group spinner">
-      <input type="text" class="form-control" value="9">
+      <input id="num-players" type="text" class="form-control" value="9">
       <div class="input-group-btn-vertical">
-        <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-        <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+        <button id="dec-players" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+        <button id="inc-players" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
       </div>
+    </div>
+
+    <div>
+      <table class="table" style="width:10%">
+        <thead>
+          <tr><th>Runs</th><th>Stack</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>1</th><th id="stack-1"></th></tr>
+          <tr><th>2</th><th id="stack-2"></th></tr>
+          <tr><th>3</th><th id="stack-3"></th></tr>
+          <tr><th>4</th><th id="stack-4"></th></tr>
+          <tr><th>5</th><th id="stack-5"></th></tr>
+          <tr><th>6</th><th id="stack-6"></th></tr>
+          <tr><th>7</th><th id="stack-7"></th></tr>
+          <tr><th>8</th><th id="stack-8"></th></tr>
+          <tr><th>9</th><th id="stack-9"></th></tr>
+          <tr><th>10</th><th id="stack-10"></th></tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -110,11 +130,23 @@
         $("#level").text(level);
         $("#blinds").text(sb[level-1] + " / " + sb[level-1]*2);
         $("#ante").text(ante[level-1]);
+        recalc_run_stacks();
+      }
+
+      function recalc_run_stacks() {
+        for (var i = 1; i <= 10; i++) {
+          var blinds = sb[level-1] * 3;
+          var antes = ante[level-1] * parseInt($("#num-players").val());
+          $("#stack-" + i).text((blinds + antes) * i);
+        }
       }
 
       function on_dom_loaded() {
         update_random();
         inc_level();
+        recalc_run_stacks();
+        $("#dec-players").click(recalc_run_stacks);
+        $("#inc-players").click(recalc_run_stacks);
       }
 
       $(on_dom_loaded);
