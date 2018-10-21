@@ -26,10 +26,11 @@ var structures = [
              80000, 90000, 100000, 120000, 140000, 160000]
   }
   ];
+
 var si = 0;
 var level = 0;
 var sb = structures[si]["sb"];
-var ante = structures[si]["ante"];;
+var ante = structures[si]["ante"];
 
 function update_random() {
   $("#random").text(Math.floor(Math.random() * 100) + 1);
@@ -52,11 +53,40 @@ function recalc_run_stacks() {
   }
 }
 
+function show_structure(index) {
+  for (i = 0; i < structures.length; i++) {
+    $("#structure-table-" + i).hide();
+    $("#structure-name-" + i).removeClass("btn-info");
+  }
+  $("#structure-table-" + index).show();
+  $("#structure-name-" + index).addClass("btn-info");
+}
+
+function start_main(index) {
+  si = index;
+  sb = structures[si]["sb"];
+  ante = structures[si]["ante"];
+  update_random();
+  inc_level();
+  recalc_run_stacks();
+  $("#dec-players").click(recalc_run_stacks);
+  $("#inc-players").click(recalc_run_stacks);
+  $("#init-page").hide();
+  $("#main-page").show();
+}
+
 function fill_init_page() {
   for (var i = 0; i < structures.length; i++) {
     $("#structure-names").append(
-      '<button id="' + structures[i]["name"] + '" class="btn btn-default" type="button" data-index="' + i + '">' +
-        structures[i]["name"] +
+      '<button' +
+        ' id="structure-name-' + i + '" ' +
+        ' class="btn btn-default" ' +
+        ' type="button" ' +
+        ' data-index="' + i + '"' +
+        ' onmouseover="show_structure(' + i + ')"' +
+        'onclick="start_main(' + i + ')"' +
+        '>' +
+          structures[i]["name"] +
       '</button>'
       );
     var structure = "";
@@ -72,10 +102,12 @@ function fill_init_page() {
                    "</tr>";
     }
     $("#structure-tables").append(
-      '<table class="table" style="width:50%">' +
-        '<thead><th>Blinds</th><th>Antes</th></thead>' +
-        '<tbody>' + structure + '</tbody>' +
-      '</table>'
+      '<div id="structure-table-' + i + '" hidden>' +
+        '<table class="table" style="width:50%">' +
+          '<thead><th>Blinds</th><th>Antes</th></thead>' +
+          '<tbody>' + structure + '</tbody>' +
+        '</table>' +
+      '</div>'
       );
   }
 }
@@ -83,12 +115,6 @@ function fill_init_page() {
 function on_dom_loaded() {
   fill_init_page();
   $("#init-page").show();
-  //$("#main-page").show();
-  update_random();
-  inc_level();
-  recalc_run_stacks();
-  $("#dec-players").click(recalc_run_stacks);
-  $("#inc-players").click(recalc_run_stacks);
 }
 
 $(on_dom_loaded);
