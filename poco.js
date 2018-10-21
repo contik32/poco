@@ -39,6 +39,8 @@ function recalc_run_stacks() {
 }
 
 function on_dom_loaded() {
+  $("#init_page").hide();
+  $("#main_page").show();
   update_random();
   inc_level();
   recalc_run_stacks();

@@ -17,45 +17,49 @@
    <link rel="stylesheet" href="spinner.css">
   </head>
   <body>
-    <div>
-      <h1><span id="random" class="label label-default"></span></h1>
+    <div id="init_page" hidden>
     </div>
-
-    <div>
-      <h3>
-        <button type="button" class="btn btn-primary" onclick="inc_level()">Level <span id="level" class="badge">0</span></button>
-        <span id="blinds" class="label label-info">0 / 0</span>
-        <span id="ante" class="label label-info">0</span>
-      </h3>
-    </div>
-
-    Players
-    <div class="input-group spinner">
-      <input id="num-players" type="text" class="form-control" value="9">
-      <div class="input-group-btn-vertical">
-        <button id="dec-players" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-        <button id="inc-players" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+    <div id="main_page">
+      <div>
+        <h1><span id="random" class="label label-default"></span></h1>
       </div>
-    </div>
 
-    <div>
-      <table class="table" style="width:10%">
-        <thead>
-          <tr><th>Runs</th><th>Stack</th></tr>
-        </thead>
-        <tbody>
-          <tr><th>1</th><th id="stack-1"></th></tr>
-          <tr><th>2</th><th id="stack-2"></th></tr>
-          <tr><th>3</th><th id="stack-3"></th></tr>
-          <tr><th>4</th><th id="stack-4"></th></tr>
-          <tr><th>5</th><th id="stack-5"></th></tr>
-          <tr><th>6</th><th id="stack-6"></th></tr>
-          <tr><th>7</th><th id="stack-7"></th></tr>
-          <tr><th>8</th><th id="stack-8"></th></tr>
-          <tr><th>9</th><th id="stack-9"></th></tr>
-          <tr><th>10</th><th id="stack-10"></th></tr>
-        </tbody>
-      </table>
+      <div>
+        <h3>
+          <button type="button" class="btn btn-primary" onclick="inc_level()">Level <span id="level" class="badge">0</span></button>
+          <span id="blinds" class="label label-info">0 / 0</span>
+          <span id="ante" class="label label-info">0</span>
+        </h3>
+      </div>
+
+      Players
+      <div class="input-group spinner">
+        <input id="num-players" type="text" class="form-control" value="9">
+        <div class="input-group-btn-vertical">
+          <button id="dec-players" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+          <button id="inc-players" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+        </div>
+      </div>
+
+      <div>
+        <table class="table" style="width:10%">
+          <thead>
+            <tr><th>Runs</th><th>Stack</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>1</th><th id="stack-1"></th></tr>
+            <tr><th>2</th><th id="stack-2"></th></tr>
+            <tr><th>3</th><th id="stack-3"></th></tr>
+            <tr><th>4</th><th id="stack-4"></th></tr>
+            <tr><th>5</th><th id="stack-5"></th></tr>
+            <tr><th>6</th><th id="stack-6"></th></tr>
+            <tr><th>7</th><th id="stack-7"></th></tr>
+            <tr><th>8</th><th id="stack-8"></th></tr>
+            <tr><th>9</th><th id="stack-9"></th></tr>
+            <tr><th>10</th><th id="stack-10"></th></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
