@@ -54,7 +54,11 @@ function recalc_run_stacks() {
 
 function fill_init_page() {
   for (var i = 0; i < structures.length; i++) {
-    $("#init-page").append("<p>" + structures[i]["name"] + "</p>");
+    $("#structure-names").append(
+      '<button id="' + structures[i]["name"] + '" class="btn btn-default" type="button" data-index="' + i + '">' +
+        structures[i]["name"] +
+      '</button>'
+      );
     var structure = "";
     for (var j = 0; j < structures[i]["sb"].length; j++) {
       structure += "<tr>" +
@@ -67,8 +71,8 @@ function fill_init_page() {
                      "</td>" +
                    "</tr>";
     }
-    $("#init-page").append(
-      '<table class="table">' +
+    $("#structure-tables").append(
+      '<table class="table" style="width:50%">' +
         '<thead><th>Blinds</th><th>Antes</th></thead>' +
         '<tbody>' + structure + '</tbody>' +
       '</table>'
