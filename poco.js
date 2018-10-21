@@ -1,12 +1,3 @@
-(function ($) {
-  $('.spinner .btn:first-of-type').on('click', function() {
-    $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-  });
-  $('.spinner .btn:last-of-type').on('click', function() {
-    $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-  });
-})(jQuery);
-
 var sb = [10, 15, 25, 40, 60, 80,
           100, 150, 200, 300, 400, 500, 600, 800,
           1000, 1500, 2000, 3000, 4000, 5000, 6000, 8000,
