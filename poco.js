@@ -3,7 +3,7 @@ var structures = [
     "name": "Sit-n-Go",
     "sb":   [10, 15, 25, 40, 60, 80,
              100, 150, 200, 300, 400, 500, 600, 800,
-             1000, 1500, 2000, 3000, 4000, 5000, 6000, 8000,
+             1000, 1500, 2000, 3000, 4000, 6000, 8000,
              10000, 15000, 20000, 25000, 30000],
     "ante": [3, 4, 6, 10, 15, 20,
              25, 25, 25, 50, 50, 60, 75, 75,
@@ -52,9 +52,34 @@ function recalc_run_stacks() {
   }
 }
 
+function fill_init_page() {
+  for (var i = 0; i < structures.length; i++) {
+    $("#init-page").append("<p>" + structures[i]["name"] + "</p>");
+    var structure = "";
+    for (var j = 0; j < structures[i]["sb"].length; j++) {
+      structure += "<tr>" +
+                     "<td>" +
+                       structures[i]["sb"][j] + "/" +
+                       structures[i]["sb"][j] * 2 +
+                     "</td>" +
+                     "<td>" +
+                       structures[i]["ante"][j] +
+                     "</td>" +
+                   "</tr>";
+    }
+    $("#init-page").append(
+      '<table class="table">' +
+        '<thead><th>Blinds</th><th>Antes</th></thead>' +
+        '<tbody>' + structure + '</tbody>' +
+      '</table>'
+      );
+  }
+}
+
 function on_dom_loaded() {
-  $("#init_page").hide();
-  $("#main_page").show();
+  fill_init_page();
+  $("#init-page").show();
+  //$("#main-page").show();
   update_random();
   inc_level();
   recalc_run_stacks();
