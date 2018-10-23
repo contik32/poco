@@ -11,7 +11,7 @@ The main window displays the following info:
 
   * Current blinds level
   * Current blinds and antes
-  * Random number from 1 to 100 updates every 5 seconds (it helps to randomize
+  * Random number from 1 to 100 updated every 5 seconds (it helps to randomize
     your decisions sometimes)
   * Number of players at the table. You can choose this number by pressing on
     the spinner arrows
