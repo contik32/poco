@@ -40,8 +40,7 @@ function update_random() {
 function inc_level() {
   level += 1;
   $("#level").text(level);
-  $("#blinds").text(sb[level-1] + " / " + sb[level-1]*2);
-  $("#ante").text(ante[level-1]);
+  $("#blinds").text(sb[level-1] + "/" + sb[level-1]*2 + " ante " + ante[level-1]);
   recalc_run_stacks();
 }
 
@@ -113,6 +112,8 @@ function fill_init_page() {
 }
 
 function on_dom_loaded() {
+  $("#top-cell").append($("#level-blinds-random"));
+  $("#left-cell").append($("#players-runs-stacks"));
   fill_init_page();
   $("#init-page").show();
 }

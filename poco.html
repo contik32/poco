@@ -28,29 +28,34 @@
       </div>
     </div>
     <div id="main-page" hidden>
-      <div>
-        <h1><span id="random" class="label label-default"></span></h1>
-      </div>
-
-      <div>
-        <h3>
-          <button type="button" class="btn btn-primary" onclick="inc_level()">Level <span id="level" class="badge">0</span></button>
-          <span id="blinds" class="label label-info">0 / 0</span>
-          <span id="ante" class="label label-info">0</span>
-        </h3>
-      </div>
-
-      Players
-      <div class="input-group spinner">
-        <input id="num-players" type="text" class="form-control" value="9">
-        <div class="input-group-btn-vertical">
-          <button id="dec-players" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-          <button id="inc-players" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+      <div class="container">
+        <div class="row">
+          <div id="top-cell" class="col-sm-12"></div>
+        </div>
+        <div class="row">
+          <div id="left-cell" class="col-sm-4"></div>
+          <div id="right-cell" class="col-sm-8"></div>
         </div>
       </div>
 
-      <div>
-        <table class="table" style="width:10%">
+      <div id="level-blinds-random">
+        <h3>
+          <button type="button" class="btn btn-primary" onclick="inc_level()">Level <span id="level" class="badge">0</span></button>
+          <span id="blinds" class="label label-info">0/0 ante 0</span>
+          <span id="random" class="label label-default">
+        </h3>
+      </div>
+
+      <div id="players-runs-stacks">
+        Players
+        <div class="input-group spinner">
+          <input id="num-players" type="text" class="form-control" value="9">
+          <div class="input-group-btn-vertical">
+            <button id="dec-players" class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+            <button id="inc-players" class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+          </div>
+        </div>
+        <table class="table" style="width:20%">
           <thead>
             <tr><th>Runs</th><th>Stack</th></tr>
           </thead>
