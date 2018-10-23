@@ -45,7 +45,7 @@ function inc_level() {
 }
 
 function recalc_run_stacks() {
-  for (var i = 1; i <= 10; i++) {
+  for (var i = 1; i <= 12; i++) {
     var blinds = sb[level-1] * 3;
     var antes = ante[level-1] * parseInt($("#num-players").val());
     $("#stack-" + i).text((blinds + antes) * i);
